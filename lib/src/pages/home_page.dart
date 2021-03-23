@@ -10,10 +10,9 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text('Material App Bar'),
         ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.qr_code_sharp),
+          onPressed: () {},
         ),
       ),
     );
