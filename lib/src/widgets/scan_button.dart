@@ -28,6 +28,8 @@ class ScanButton extends StatelessWidget {
   }
 
   void getConnectionState(String code) async {
+    final data = code.substring(5);
+    print(data);
     var listAvailableWifi = await WifiConfiguration.getWifiList();
     print("get wifi list : " + listAvailableWifi.toString());
     WifiConnectionStatus connectionStatus =
