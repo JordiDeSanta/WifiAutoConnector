@@ -28,13 +28,18 @@ class ScanButton extends StatelessWidget {
   }
 
   void getConnectionState(String code) async {
+    //S:Nelly1;T:WPA;P:nicasio1688;;
     final data = code.substring(5);
-    print(data);
+    final splitedData = data.split(';');
+
+    final ssid = splitedData[0].substring(2);
+    final password = splitedData[2].substring(2);
+
+    print(ssid);
     var listAvailableWifi = await WifiConfiguration.getWifiList();
-    print("get wifi list : " + listAvailableWifi.toString());
+    // print("get wifi list : " + listAvailableWifi.toString());
     WifiConnectionStatus connectionStatus =
         await WifiConfiguration.connectToWifi(
-            "Nelly1", "nicasio1688", "com.example.wifi_configuration_example");
-    print("is Connected : ${connectionStatus}");
+            ssid, password, "com.example.wifi_configuration_example");
   }
 }
