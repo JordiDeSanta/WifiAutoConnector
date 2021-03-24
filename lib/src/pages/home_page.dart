@@ -1,3 +1,4 @@
+import 'package:autoconnector/src/widgets/scan_button.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,10 +11,8 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text('Material App Bar'),
         ),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.qr_code_sharp),
-          onPressed: () {},
-        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: ScanButton(),
       ),
     );
   }

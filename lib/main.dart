@@ -9,6 +9,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Wifi Auto Connector',
       home: HomePage(),
+      initialRoute: 'home',
+      routes: {
+        'home': (BuildContext context) => HomePage(),
+      },
     );
   }
 }
