@@ -9,22 +9,25 @@ class ScanButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       child: Icon(Icons.filter_center_focus),
+      elevation: 100,
       onPressed: () async {
         final barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-          '#FF0000',
+          '#716be3',
           'Cancel',
           false,
           ScanMode.QR,
         );
-        getConnectionState();
+
         if (barcodeScanRes == '-1') {
           return;
         }
+
+        getConnectionState(barcodeScanRes);
       },
     );
   }
 
-  void getConnectionState() async {
+  void getConnectionState(String code) async {
     var listAvailableWifi = await WifiConfiguration.getWifiList();
     print("get wifi list : " + listAvailableWifi.toString());
     WifiConnectionStatus connectionStatus =
